@@ -51,3 +51,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define OLED_FONT_H "keyboards/crkbd/lib/glcdfont.c"
 
 #define MIDI_ADVANCED
+// #define NO_ACTION_MACRO
+#define NO_ACTION_FUNCTION
+// #define NO_ACTION_TAPPING
+#define NO_ACTION_ONESHOT
+
+#define IGNORE_MOD_TAP_INTERRUPT
+
+
