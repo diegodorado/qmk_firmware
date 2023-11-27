@@ -27,11 +27,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define KK_J     SFT_T(KC_J)
 #define KK_K     CTL_T(KC_K)
 #define KK_L     ALT_T(KC_L)
-#define KK_COLN  GUI_T(KC_COLN)
+#define KK_SCLN  GUI_T(KC_SCLN)
 
 // below home alt gr
 #define KK_X     RALT_T(KC_X)
 #define KK_DOT   RALT_T(KC_DOT)
+
+// opening marks
+#define KK_OQUES   ALGR(KC_SLASH)
+#define KK_OEXLM   ALGR(KC_EXLM)
 
 enum crkbd_layers {
   L_BASE,
@@ -55,11 +59,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,--------------------------------------------.                    ,--------------------------------------------.
       KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, 
   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
-      KK_A,    KK_S,    KK_D,    KK_F,    KC_G,                         KC_H,    KK_J,    KK_K,    KK_L, KK_COLN, 
+      KK_A,    KK_S,    KK_D,    KK_F,    KC_G,                         KC_H,    KK_J,    KK_K,    KK_L, KK_SCLN, 
   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
       KC_Z,    KK_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KK_DOT, KC_SLSH,
   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
-  LT(L_MEDIA,KC_ESC), LT(L_NUM,KC_SPC), LT(L_MOUSE,KC_TAB),  LT(L_NAV_FN,KC_ENT), LT(L_SYM,KC_BACKSPACE), LT(L_MIDI,KC_DEL)
+  LT(L_MEDIA,KC_DEL), LT(L_NUM,KC_BACKSPACE), LT(L_MOUSE,KC_ESC),  LT(L_NAV_FN,KC_ENT), LT(L_SYM,KC_SPACE), LT(L_MIDI,KC_TAB)
                                     //`--------------------------'  `--------------------------'
   ),
   [L_NUM] = LAYOUT_split_3x5_3(
@@ -70,7 +74,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
       XXXX,    XXXX,    XXXX,    XXXX,    XXXX,                         KC_PLUS, KC_1,    KC_2,    KC_3,    KC_SLSH,
   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
-                                      XXXX,XXXX,XXXX,           KC_ENT, KC_DOT, KC_0
+                                      XXXX,XXXX,XXXX,           KC_ENT, KC_0, KC_DOT
                              //`--------------------------'  `--------------------------'
   ),
   [L_SYM] = LAYOUT_split_3x5_3(
@@ -79,7 +83,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
       KC_LABK, KC_LBRC, KC_LCBR, KC_LPRN, KC_QUOT,                      KC_DQUO, KC_RPRN, KC_RCBR, KC_RBRC, KC_RABK, 
   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
-     ALGR(KC_QUES), ALGR(KC_EXLM),XXXX,XXXX, XXXX,                     CW_TOGG, XXXX,    KC_HASH, KC_EXLM, KC_QUES,
+     KK_OQUES,KK_OEXLM,  XXXX  ,  XXXX  , XXXX   ,                     XXXX,    CW_TOGG,  KC_HASH, KC_EXLM, KC_QUES,
   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
                                       XXXX,XXXX,XXXX,           XXXX,XXXX,XXXX
                              //`--------------------------'  `--------------------------'
@@ -99,7 +103,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,--------------------------------------------.                    ,--------------------------------------------.
       XXXX,    XXXX,    XXXX,    XXXX,    XXXX,                          XXXX  ,   XXXX ,  XXXX  ,  XXXX  ,  XXXX  , 
   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
-      XXXX,    XXXX,     K_ACL0,  K_ACL1,  K_ACL2,                     KC_APP,   KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, 
+      XXXX,    XXXX,    KC_ACL0, KC_ACL1, KC_ACL2,                     KC_APP,   KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, 
   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
       XXXX,    XXXX,    XXXX,    XXXX,    XXXX,                        XXXX  ,   KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, 
   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
@@ -108,7 +112,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [L_MEDIA] = LAYOUT_split_3x5_3(
   //,--------------------------------------------.                    ,--------------------------------------------.
-      XXXX,    XXXX,    XXXX,    XXXX,    XXXX,                        RGB_TOG , XXXX   , RGB_HUI, RGB_SAI, RGB_VAI, 
+      XXXX,    XXXX,    XXXX,    XXXX,    XXXX,                        RGB_TOG , RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI, 
   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
       XXXX,    XXXX,    XXXX,    XXXX,    XXXX,                          XXXX , KC_MPRV , KC_VOLD, KC_VOLU, KC_MNXT, 
   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
@@ -140,9 +144,28 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 
 void oled_render_layer_state(void) {
     oled_write_P(PSTR("Layer: "), false);
-    switch (layer_state) {
-        case 1:
+    // switch (layer_state) {
+    switch (get_highest_layer(layer_state)) {
+        case L_BASE:
             oled_write_ln_P(PSTR("BASE"), false);
+            break;
+        case L_NUM:
+            oled_write_ln_P(PSTR("NUM"), false);
+            break;
+        case L_SYM:
+            oled_write_ln_P(PSTR("SYM"), false);
+            break;
+        case L_NAV_FN:
+            oled_write_ln_P(PSTR("NAV_FN"), false);
+            break;
+        case L_MEDIA:
+            oled_write_ln_P(PSTR("MEDIA"), false);
+            break;
+        case L_MIDI:
+            oled_write_ln_P(PSTR("MIDI"), false);
+            break;
+        case L_MOUSE:
+            oled_write_ln_P(PSTR("MOUSE"), false);
             break;
         default:
             oled_write_ln_P(PSTR("Other"), false);
@@ -176,7 +199,7 @@ void set_keylog(uint16_t keycode, keyrecord_t *record) {
 }
 
 void oled_render_keylog(void) {
-    oled_write(keylog_str, false);
+   oled_write(keylog_str, false);
 }
 
 void render_bootmagic_status(bool status) {
