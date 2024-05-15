@@ -104,17 +104,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [L_MOD] = LAYOUT(
   //,--------------------------------------------.                    ,--------------------------------------------.
-      XXXX,   XXXX,    XXXX,   XXXX,    XXXX,                        XXXX  ,   XXXX ,  XXXX  ,  XXXX  ,  XXXX  , 
+     KC_MUTE, KC_VOLD, KC_VOLU,   XXXX,    XXXX,                         XXXX  ,   XXXX ,   KC_UP,  XXXX  ,  XXXX  , 
   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
-      KC_F5,   KC_F6,    KC_F7,   KC_F8,    XXXX,                        XXXX  , KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, 
+OSM(MOD_LGUI),OSM(MOD_LALT),XXXX,KC_BSPC, CW_TOGG,                       XXXX  , KC_LEFT, KC_DOWN,  KC_RGHT, XXXX  , 
   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
-      XXXX,  KC_F10,   XXXX,  KC_F12,    XXXX,                        XXXX  , KC_HOME, KC_PGUP, KC_PGDN, KC_END, 
+      XXXX,  OSM(MOD_RALT),XXXX,  KC_DEL, XXXX,                        XXXX  , KC_HOME, KC_PGUP, KC_PGDN, KC_END, 
   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
                                   XXXX, XXXX,                               XXXX, XXXX
                              //`--------------------------'  `--------------------------'
   ),
   [L_MED] = LAYOUT(
-  //,--------------------------------------------.                    ,--------------------------------------------.
+  //,-------------------------------------------- .                    ,--------------------------------------------.
       XXXX,    XXXX,    XXXX,    XXXX,    XXXX,                        RGB_TOG , RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI, 
   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
       XXXX,    XXXX,    XXXX,    XXXX,    XXXX,                          XXXX , KC_MPRV , KC_VOLD, KC_VOLU, KC_MNXT, 
